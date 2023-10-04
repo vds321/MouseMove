@@ -30,6 +30,7 @@ namespace MouseMove
             {
                 case Key.S:
                     {
+                        if (_Worker.IsBusy) break;
                         var interval = int.Parse(cmb_interval.SelectedItem.ToString());
                         var step = 15;
                         if (rb_medium.IsChecked.GetValueOrDefault())
@@ -45,6 +46,7 @@ namespace MouseMove
                         break;
                     }
                 case Key.Q:
+                    if (!_Worker.IsBusy) break;
                     _Worker.CancelAsync();
                     break;
             }
